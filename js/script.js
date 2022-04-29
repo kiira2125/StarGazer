@@ -20,4 +20,5 @@ const displayData = data => {
   document.getElementById('explanation').textContent = data.explanation
 }
 
+//earliest picture from NASA APOD is june 16, 1995
 fetchNASAData()
