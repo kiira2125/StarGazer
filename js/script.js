@@ -1,6 +1,7 @@
 const url = 'https://api.nasa.gov/planetary/apod?api_key='
 const api_key = '5bUvkb0JwlsXJrZnZ10jfhZ6o5GGNLb43RTWTE9w'
 
+// Fetching data from the API
 const fetchNASAData = async () => {
   try {
     const response = await fetch(`${url}${api_key}`)
@@ -11,7 +12,7 @@ const fetchNASAData = async () => {
     console.log(error)
   }
 }
-
+// Displaying data on the page
 const displayData = data => {
   document.getElementById('title').textContent = data.title
   document.getElementById('date').textContent = data.date
