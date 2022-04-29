@@ -1,43 +1,22 @@
-//This is code that will select a new picture every 24hours trying to do the picture of the day
+const url = 'https://api.nasa.gov/planetary/apod?api_key='
+const api_key = '5bUvkb0JwlsXJrZnZ10jfhZ6o5GGNLb43RTWTE9w'
 
-// $( document ).ready(function() {  
-//     SetImage();
-//     window.setInterval(SetImage,1000);
-// });
+const fetchNASAData = async () => {
+  try {
+    const response = await fetch(`${url}${api_key}`)
+    const data = await response.json()
+    console.log('NASA APOD data', data)
+    displayData(data)
+  } catch (error) {
+    console.log(error)
+  }
+}
 
-// function SetImage(){     
-//     var nowdate = new Date() ;
-    
-//     var waketime = new Date();     
-//     waketime.setHours(6);
-//     waketime.setMinutes(30);
-    
-//     var bedtime = new Date();     
-//     bedtime.setHours(18);
-//     bedtime.setMinutes(30);
-    
-//     if(waketime < nowdate  && nowdate < bedtime){
-//          $('#day').show();
-//          $('#night').hide();
-//     }else{
-//          $('#night').show();
-//          $('#day').hide();
-//     }
-// }
+const displayData = data => {
+  document.getElementById('title').textContent = data.title
+  document.getElementById('date').textContent = data.date
+  document.getElementById('picture').src = data.hdurl
+  document.getElementById('explanation').textContent = data.explanation
+}
 
-// <img id="night" src="">
-// <img id="day" src=""></img>
-
-
-// or using a time interval but need to place the seconds to equal 24 hours
-$("#slideshow > div:gt(0)").hide();
-
-setInterval(function() { 
-  $('#slideshow > div:first')
-  //86400 seconds in 24hours
-  .fadeOut(86400)
-  .next()
-  .fadeIn(86400)
-  .end()
-  .appendTo('#slideshow');
-}, 300000);
+fetchNASAData()
