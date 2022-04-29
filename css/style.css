@@ -23,3 +23,503 @@
   letter-spacing: 0px;
   line-height: 20px;
 }
+
+/* date picker */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.ui-calendar {
+  position: relative;
+}
+.ui-header {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(3vmin);
+  width: 100%;
+  height: 9vmin;
+  line-height: 9vmin;
+  text-transform: uppercase;
+}
+.ui-header > .ui-text {
+  position: absolute;
+  height: 100%;
+  transform: translateX(0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: inherit;
+}
+.ui-header > .ui-text.-month-year {
+  opacity: 0;
+}
+/* ---------------------------------- */
+.ui-grid {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 9vmin;
+  z-index: 100;
+  pointer-events: none;
+}
+.ui-column, .ui-row {
+  position: absolute;
+  border: solid 0px;
+  border-color: #797979;
+  transform-origin: top right;
+  transition-duration: 0.6s;
+  transition-timing-function: cubic-bezier(0.5, 0, 0.55, 1);
+  transition-property: transform, border-color;
+}
+.ui-row {
+  left: 0;
+  right: 0;
+  border-top-width: 1px;
+}
+.ui-column {
+  top: 0;
+  bottom: 0;
+  border-left-width: 1px;
+}
+.ui-row {
+  transform: translate(6.75vmin, calc(-7.3125vmin
+        + (var(--row) - 1) 
+      * 6.75vmin 
+      / var(--rows))) scaleX(0.0975);
+  transition-delay: calc(var(--row) * 60ms);
+}
+.ui-column {
+  transform: translate(calc(-8.4375vmin 
+        + ((var(--columns)) * 9vmin) 
+        + (var(--col) - 1) * 6.75vmin 
+      / var(--columns)), -7.3125vmin) scaleY(0.1275);
+  transition-delay: calc(( (var(--columns) - var(--col)) * 60ms ));
+}
+.ui-calendar:focus .ui-column, .ui-calendar:focus .ui-row {
+  border-color: #E3E3E3;
+}
+.ui-calendar:focus .ui-row {
+  transform: translate(0em, calc((var(--row) - 1) 
+        * 9vmin)) scaleX(1);
+  transition-delay: calc(var(--row) * 40ms);
+}
+.ui-calendar:focus .ui-column {
+  transform: translate(calc((var(--col) - 1)
+        * 9vmin), 0em) scaleY(1);
+  transition-delay: calc(( (var(--columns) - var(--col)) * 40ms ));
+}
+/* ---------------------------------- */
+.ui-text {
+  white-space: nowrap;
+  font-size: 3vmin;
+}
+.ui-text.-month-year:before, .ui-text.-month-year:after {
+  position: absolute;
+  content: '';
+  top: 3vmin;
+  height: 3vmin;
+  width: 3vmin;
+  border: 2px solid gray;
+  border-right: none;
+  border-bottom: none;
+  transition-duration: 0.8s;
+}
+.ui-text.-month-year:before {
+  transform: scale(1, 1) translateX(0) rotate(-45deg);
+  transition-delay: 0.4s;
+  left: -18vmin;
+}
+.ui-text.-month-year:after {
+  transform: scale(1, 1) translateX(0) rotate(135deg);
+  transition-delay: 0.8s;
+  right: -18vmin;
+}
+.ui-day {
+  display: flex;
+  position: absolute;
+  height: 9vmin;
+  width: 9vmin;
+  justify-content: center;
+  align-items: center;
+  transform: translate(var(--x, 0), var(--y));
+  font-size: 3vmin;
+  cursor: pointer;
+}
+.ui-day:before {
+  content: attr(data-day);
+  transition-delay: calc(0s + (30 - var(--day)) * 20ms);
+  transition-duration: 0.4s;
+  transform: scale(0);
+  opacity: 0;
+}
+.ui-day:nth-of-type(n + 1):nth-of-type(-n + 7) {
+  --y: 9vmin;
+}
+.ui-day:nth-of-type(n + 8):nth-of-type(-n + 14) {
+  --y: 18vmin;
+}
+.ui-day:nth-of-type(n + 15):nth-of-type(-n + 21) {
+  --y: 27vmin;
+}
+.ui-day:nth-of-type(n + 22):nth-of-type(-n + 28) {
+  --y: 36vmin;
+}
+.ui-day:nth-of-type(n + 29):nth-of-type(-n + 35) {
+  --y: 45vmin;
+}
+.ui-day:nth-of-type(7n + 1) {
+  --x: 9vmin;
+}
+.ui-day:nth-of-type(7n + 2) {
+  --x: 18vmin;
+}
+.ui-day:nth-of-type(7n + 3) {
+  --x: 27vmin;
+}
+.ui-day:nth-of-type(7n + 4) {
+  --x: 36vmin;
+}
+.ui-day:nth-of-type(7n + 5) {
+  --x: 45vmin;
+}
+.ui-day:nth-of-type(7n + 6) {
+  --x: 54vmin;
+}
+.ui-day:nth-of-type(7n + 7) {
+  --x: 63vmin;
+}
+#day-1:checked ~ .ui-calendar .ui-day[for="day-1"] {
+  transform: translate(0, 1px);
+}
+#day-1:checked ~ .ui-calendar .ui-day[for="day-1"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-2:checked ~ .ui-calendar .ui-day[for="day-2"] {
+  transform: translate(0, 1px);
+}
+#day-2:checked ~ .ui-calendar .ui-day[for="day-2"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-3:checked ~ .ui-calendar .ui-day[for="day-3"] {
+  transform: translate(0, 1px);
+}
+#day-3:checked ~ .ui-calendar .ui-day[for="day-3"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-4:checked ~ .ui-calendar .ui-day[for="day-4"] {
+  transform: translate(0, 1px);
+}
+#day-4:checked ~ .ui-calendar .ui-day[for="day-4"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-5:checked ~ .ui-calendar .ui-day[for="day-5"] {
+  transform: translate(0, 1px);
+}
+#day-5:checked ~ .ui-calendar .ui-day[for="day-5"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-6:checked ~ .ui-calendar .ui-day[for="day-6"] {
+  transform: translate(0, 1px);
+}
+#day-6:checked ~ .ui-calendar .ui-day[for="day-6"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-7:checked ~ .ui-calendar .ui-day[for="day-7"] {
+  transform: translate(0, 1px);
+}
+#day-7:checked ~ .ui-calendar .ui-day[for="day-7"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-8:checked ~ .ui-calendar .ui-day[for="day-8"] {
+  transform: translate(0, 1px);
+}
+#day-8:checked ~ .ui-calendar .ui-day[for="day-8"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-9:checked ~ .ui-calendar .ui-day[for="day-9"] {
+  transform: translate(0, 1px);
+}
+#day-9:checked ~ .ui-calendar .ui-day[for="day-9"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-10:checked ~ .ui-calendar .ui-day[for="day-10"] {
+  transform: translate(0, 1px);
+}
+#day-10:checked ~ .ui-calendar .ui-day[for="day-10"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-11:checked ~ .ui-calendar .ui-day[for="day-11"] {
+  transform: translate(0, 1px);
+}
+#day-11:checked ~ .ui-calendar .ui-day[for="day-11"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-12:checked ~ .ui-calendar .ui-day[for="day-12"] {
+  transform: translate(0, 1px);
+}
+#day-12:checked ~ .ui-calendar .ui-day[for="day-12"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-13:checked ~ .ui-calendar .ui-day[for="day-13"] {
+  transform: translate(0, 1px);
+}
+#day-13:checked ~ .ui-calendar .ui-day[for="day-13"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-14:checked ~ .ui-calendar .ui-day[for="day-14"] {
+  transform: translate(0, 1px);
+}
+#day-14:checked ~ .ui-calendar .ui-day[for="day-14"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-15:checked ~ .ui-calendar .ui-day[for="day-15"] {
+  transform: translate(0, 1px);
+}
+#day-15:checked ~ .ui-calendar .ui-day[for="day-15"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-16:checked ~ .ui-calendar .ui-day[for="day-16"] {
+  transform: translate(0, 1px);
+}
+#day-16:checked ~ .ui-calendar .ui-day[for="day-16"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-17:checked ~ .ui-calendar .ui-day[for="day-17"] {
+  transform: translate(0, 1px);
+}
+#day-17:checked ~ .ui-calendar .ui-day[for="day-17"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-18:checked ~ .ui-calendar .ui-day[for="day-18"] {
+  transform: translate(0, 1px);
+}
+#day-18:checked ~ .ui-calendar .ui-day[for="day-18"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-19:checked ~ .ui-calendar .ui-day[for="day-19"] {
+  transform: translate(0, 1px);
+}
+#day-19:checked ~ .ui-calendar .ui-day[for="day-19"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-20:checked ~ .ui-calendar .ui-day[for="day-20"] {
+  transform: translate(0, 1px);
+}
+#day-20:checked ~ .ui-calendar .ui-day[for="day-20"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-21:checked ~ .ui-calendar .ui-day[for="day-21"] {
+  transform: translate(0, 1px);
+}
+#day-21:checked ~ .ui-calendar .ui-day[for="day-21"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-22:checked ~ .ui-calendar .ui-day[for="day-22"] {
+  transform: translate(0, 1px);
+}
+#day-22:checked ~ .ui-calendar .ui-day[for="day-22"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-23:checked ~ .ui-calendar .ui-day[for="day-23"] {
+  transform: translate(0, 1px);
+}
+#day-23:checked ~ .ui-calendar .ui-day[for="day-23"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-24:checked ~ .ui-calendar .ui-day[for="day-24"] {
+  transform: translate(0, 1px);
+}
+#day-24:checked ~ .ui-calendar .ui-day[for="day-24"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-25:checked ~ .ui-calendar .ui-day[for="day-25"] {
+  transform: translate(0, 1px);
+}
+#day-25:checked ~ .ui-calendar .ui-day[for="day-25"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-26:checked ~ .ui-calendar .ui-day[for="day-26"] {
+  transform: translate(0, 1px);
+}
+#day-26:checked ~ .ui-calendar .ui-day[for="day-26"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-27:checked ~ .ui-calendar .ui-day[for="day-27"] {
+  transform: translate(0, 1px);
+}
+#day-27:checked ~ .ui-calendar .ui-day[for="day-27"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-28:checked ~ .ui-calendar .ui-day[for="day-28"] {
+  transform: translate(0, 1px);
+}
+#day-28:checked ~ .ui-calendar .ui-day[for="day-28"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-29:checked ~ .ui-calendar .ui-day[for="day-29"] {
+  transform: translate(0, 1px);
+}
+#day-29:checked ~ .ui-calendar .ui-day[for="day-29"]:before {
+  transform: none;
+  opacity: 1;
+}
+#day-30:checked ~ .ui-calendar .ui-day[for="day-30"] {
+  transform: translate(0, 1px);
+}
+#day-30:checked ~ .ui-calendar .ui-day[for="day-30"]:before {
+  transform: none;
+  opacity: 1;
+}
+.ui-reset {
+  position: absolute;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.7em;
+  right: 10.8vmin;
+  top: 0;
+  height: 9vmin;
+  padding: 0.25em 0.5em;
+  opacity: 0;
+  pointer-events: none;
+}
+input:checked ~ .ui-reset {
+  opacity: 0.5;
+  pointer-events: auto;
+}
+.ui-calendar {
+  height: 63vmin;
+  width: 81vmin;
+  pointer-events: none;
+}
+.ui-calendar > .ui-bg {
+  transform: scaleY(0.1428571429);
+  /* Fix for clickable items outside of collapsed height */
+}
+.ui-calendar .ui-header {
+  pointer-events: auto;
+}
+.ui-calendar:focus {
+  pointer-events: auto;
+}
+.ui-calendar:focus > .ui-header {
+  transform: translateX(50%);
+}
+.ui-calendar:focus > .ui-header > .ui-text {
+  transform: translateX(-50%);
+}
+.ui-calendar:focus > .ui-header > .ui-text.-empty {
+  opacity: 0;
+}
+.ui-calendar:focus > .ui-header > .ui-text.-month-year {
+  opacity: 1;
+}
+.ui-calendar:focus > .ui-bg {
+  transform: none;
+  transition-delay: 0s;
+}
+.ui-calendar:focus .ui-day:before {
+  transform: none;
+  opacity: 1;
+  transition-delay: calc(0.6s + var(--day) * 20ms);
+}
+input:checked ~ .ui-calendar > .ui-header {
+  transform: translateX(7.5vmin);
+}
+input:checked ~ .ui-calendar > .ui-header > .ui-text {
+  transform: none;
+}
+input:checked ~ .ui-calendar > .ui-header > .ui-text.-empty {
+  opacity: 0;
+}
+input:checked ~ .ui-calendar > .ui-header > .ui-text.-month-year {
+  opacity: 1;
+}
+input:checked ~ .ui-calendar .ui-text.-month-year:before, input:checked ~ .ui-calendar .ui-text.-month-year:after {
+  opacity: 0;
+  transition-delay: 0s !important;
+}
+.ui-calendar:not(:focus) .ui-text.-month-year:before {
+  transform: scale(2, 0) translateX(500%) rotate(-45deg);
+}
+.ui-calendar:not(:focus) .ui-text.-month-year:after {
+  transform: scale(2, 0) translateX(-500%) rotate(135deg);
+}
+input:checked ~ .ui-calendar:not(:focus) .ui-day:before {
+  transition-delay: calc((30 - var(--day)) * 10ms);
+}
+/* ---------------------------------- */
+.ui-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transform-origin: top center;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  transition-duration: 0.6s;
+  transition-delay: 0.48s;
+  overflow: hidden;
+}
+body {
+  background-color: #649EAA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: 1px;
+  overflow: hidden;
+  color: #242424;
+}
+*:focus {
+  outline: none;
+}
+*, *:before, *:after {
+  transition-property: transform, opacity;
+  transition-duration: 1.2s;
+  transition-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
+  box-sizing: border-box;
+  position: relative;
+}
+body, html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
