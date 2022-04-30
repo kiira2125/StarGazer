@@ -1,7 +1,14 @@
+/* Declare NASA's Font from Adobe */
+@import url("https://p.typekit.net/p.css?s=1&k=wje8hyq&ht=tk&f=240&a=14332622&app=typekit&e=css");
+
+@font-face {
+font-family:"nasalization";
+src:url("https://use.typekit.net/af/a97235/00000000000000007735e470/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/a97235/00000000000000007735e470/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/a97235/00000000000000007735e470/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
 * {
-    /*border color should be Pale Turquoise*/
-    /*text color should be darkslategray*/
-    font-family: 'space-bd-bt-bold', sans-serif;
+    font-family: "nasalization",sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -27,6 +34,14 @@ header a {
     margin-top: 10px;
 }
 
+#landing {
+    display: inline-block;
+    position: fixed; 
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 #landing h1 {
     text-align: center;
     color: white;
@@ -37,30 +52,45 @@ header a {
 
 #landing p {
     text-align: center;
-    color: tan;
+    color: lightgrey;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.show-button {
-    font-size: 25px;
+#landing a {
+    display: block;
+    margin: auto;
+}
+
+#landing .button {
+    font-size: 18px;
     text-decoration: none;
-    border: 1px solid white;
-    opacity: 0.7;
-    color: white;
-    background-color: rgb(181, 102, 102);
+    border: 1px solid lightgray;
+    color: black;
+    background-color: lightgrey;
     padding: 10px 20px;
     border-radius: 10px;
     display: flex;
-    top: 50%;
-    left: 50%;
-    position: absolute;
+    justify-content: center;
+    align-items: center;
+    max-width: 140px;
 }
 
-.show-button:hover {
-    background: tan;
-    border: tan;
-    text-decoration: none;
-    color: black;
+#landing .button:hover {
+    background: black;
+    color: lightgrey;
     transition: all 0.3s;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    color: lightgrey;
+    font-size: 15px;
+    text-align: right;
+    padding-right: 15px;
+    opacity: 0.5;
+}
+
