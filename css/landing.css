@@ -28,6 +28,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-position: center center;
 }
 
 header a {
@@ -35,11 +36,14 @@ header a {
 }
 
 #landing {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     position: fixed; 
     width: 100%;
     top: 25%;
     left: 50%;
+    height: 100vh;
     transform: translate(-50%, -25%);
 }
 #landing h1 {
@@ -48,6 +52,14 @@ header a {
     font-size: 50px;
     padding: 10px 0;
     line-height: 1.2;
+}
+#landing:first-child {
+    margin-top: -5%;
+}
+
+.middle-button {
+    position: relative;
+    bottom: -50px;
 }
 
 #landing p {
@@ -65,11 +77,6 @@ header a {
     width: 200px;
     height: 50px;
     padding: 2%;
-    position: absolute;
-    top: 350%;
-    left: 0;
-    bottom: 0;
-    right: 0;
     vertical-align: bottom;
 }
 
@@ -105,3 +112,6 @@ footer {
     opacity: 0.5;
 }
 
+@media (max-width: 570px) {
+
+}
