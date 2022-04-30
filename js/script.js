@@ -4,6 +4,7 @@ let userDate = moment().format('YYYY-MM-DD')
 console.log(userDate);
 
 const dateInputEl = document.getElementById('date')
+
 // receive the date that was input from user on the html
 const getDate = () => {
     const date = dateInputEl.value
