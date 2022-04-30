@@ -1,17 +1,29 @@
-# StarGazer: NASA's view of the stars
+# StarGazer: NASA's view of celestial objects, space, and the physical universe as a whole.
 ![alt text]('insert picture link here')
 
 # Project Description
 
-This purpose of this project was to collaborate with a group of developers to create an application that would solve a real-world problem.  
+This purpose of this project was to collaborate with a group of developers to create an application with the following criterias:
 
-For this project we needed to use a CSS framework, use at least one server-side API, have the site be responsive and interactive, and have a polished UI as well as a clean repository.
+```
+1. Atleast one CSS framework
+2. At least one server-side API
+3. An application that is responsive and interactive
+4. An application with a polished UI
+5. A clean repository
+```
 
-We decided to use the NASA API because it has a lot of different functionality and it seemed like something that people haven't really done in the past for this project. 
+Our application utilizes NASA's APOD API. Our team committed to utilizing this API due to the variety of different functionalities, as well as the compelling content that it offers. Our main objective was to have the ability for the user to access NASA's APOD API which has a giant database of pictures related to astronomy; complete with an identifying title and brief summary of the photograph taken.
 
-Our main objective was to have the ability for the user to access NASA's APOD API which has a giant database of pictures taken of space with an identifying title and description of the history of the constellation or picture that was taken. 
+StarGazer's current components: 
 
-We first built the HTML structure and then slightly formatted the CSS to have a basic structure and then added in the Javascript to access NASA's APOD API. We then edited the javascript and html to add in a date picker so that the user could interact with the date and choose which date they wanted to see a picture from. We then made the javascript responsive to the user's selection by adding an event listener on the change of the date.
+```
+• Landing Page
+• Displays NASA's 'picture-of-the-day' with matching summary
+• Date picker to traverse through NASA's APOD API 
+```
+
+We initially built the HTML and then slightly formatted the CSS to have a basic interface and in conjunction with Javascript, created the functionality that allows the user to fetch, retrieve, and display the data inside NASA's APOD API. From there, our team established a date picker in order to grant the user the capability to display the picture of the day from the date of their choosing.
 
 # Project Links
 
