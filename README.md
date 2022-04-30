@@ -19,4 +19,5 @@ Deployed Webpage:
 [insert link here]
 
 GitHub Repository:
-[insert link here]
+[https://github.com/kiira2125/StarGazer]
+
