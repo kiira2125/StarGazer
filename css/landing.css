@@ -53,11 +53,13 @@ header a {
 #landing p {
     text-align: center;
     color: lightgrey;
+    font-family: 'helvetica', sans-serif;
     font-size: 30px;
     margin-bottom: 20px;
 }
 
 #landing a {
+    font-family: 'helvetica', sans-serif;
     display: block;
     margin: auto;
 }
