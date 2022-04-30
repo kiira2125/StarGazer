@@ -23,17 +23,20 @@ body {
 }
 
 #picture {
-  width: 50%;
+  max-width: 50%;
   margin-right: 1rem;
-  border-radius: 5px solid white;
+  border: 5px solid white;
+  margin-top: 25px;
 }
 
 #explanation {
+  margin-top: 25px;
   letter-spacing: 0px;
   line-height: 20px;
 }
 
 #date { 
   color: black;
+  
 }
 
