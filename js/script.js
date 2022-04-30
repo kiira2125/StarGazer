@@ -5,6 +5,20 @@ console.log(userDate);
 
 const dateInputEl = document.getElementById('date')
 
+//set the maximum date to today
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //gotta add 1 because january is 0
+var yyyy = today.getFullYear();
+if(dd<10){
+  dd='0'+dd;
+}
+if(mm<10){
+  mm='0'+mm;
+}
+today = `${yyyy}-${mm}-${dd}`;
+document.getElementById('date').setAttribute("max", today);
+
 // receive the date that was input from user on the html
 const getDate = () => {
     const date = dateInputEl.value
