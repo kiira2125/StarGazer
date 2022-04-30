@@ -53,6 +53,10 @@ header a {
     padding: 10px 0;
     line-height: 1.2;
 }
+
+#landing span {
+    color: rgb(255, 166, 0);
+}
 #landing:first-child {
     margin-top: -5%;
 }

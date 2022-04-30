@@ -1,4 +1,4 @@
-# StarGazer: NASA's view of celestial objects, space, and the physical universe as a whole.
+# StarGazer: NASA's view of the galaxy.
 ![alt text]('insert picture link here')
 
 # Project Description
