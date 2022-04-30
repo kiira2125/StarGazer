@@ -20,19 +20,29 @@ body {
 
 .picture-explanation-container {
   display: flex;
+  margin-top: 25px;
 }
 
 #picture {
-  max-width: 50%;
+  width: 50%;
   margin-right: 1rem;
-  border: 5px solid white;
-  margin-top: 25px;
+  /*border: 5px solid white;
+  border-radius: 5px;*/
+    border: 3px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, #d5853a, #3a7dd5);
+ 
 }
 
 #explanation {
-  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  color: black;
   letter-spacing: 0px;
   line-height: 20px;
+  background-color: gray;
+  opacity: .75;
 }
 
 #date { 
