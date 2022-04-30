@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--stylesheet-->
+    <link rel="stylesheet" href="css/style.css" />
+    <!--remixicon cdn-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!--moment.js-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+    <!--nasa font-->
+    <link href="https://use.typekit.net/wje8hyq.css" />
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>StarGazer: Your eyes into Space.</title>
+  </head>
+  <body>
+    <main class="row container">
+      <h1>NASA's Astronomy Picture of the Day</h1>
+      <h2 id="title"></h2>
+      <label for="start">Enter a date:</label>
+      <input type="date" id="date" name="date picker"
+      min="1995-06-16" max="">
+      <section class="picture-explanation-container">
+        <img src="" id="picture" alt="astronomy image by nasa" />
+        <p id="explanation"></p>
+      </section>
+    </main>
+    <!--GSAP CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <!--script.js-->
+    <script type="text/javascript" src="./js/script.js"></script>
+  </body>
+</html>
