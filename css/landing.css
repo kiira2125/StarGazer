@@ -34,6 +34,10 @@ header a {
     margin-top: 10px;
 }
 
+span {
+    color: rgb(201, 60, 60)
+}
+
 #landing {
     display: inline-block;
     position: fixed; 
