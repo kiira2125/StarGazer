@@ -35,6 +35,10 @@ header a {
     margin-top: 10px;
 }
 
+span {
+    color: rgb(201, 60, 60)
+}
+
 #landing {
     display: flex;
     flex-direction: column;
