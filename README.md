@@ -1,5 +1,5 @@
 # StarGazer: NASA's view of the galaxy.
-![alt text]('insert picture link here')
+![alt text]('https://github.com/kiira2125/StarGazer/blob/main/assets/landing%20page%20screenshot.PNG?raw=true')
 
 # Project Description
 
