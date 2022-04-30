@@ -28,7 +28,7 @@ We initially built the HTML and then slightly formatted the CSS to have a basic 
 # Project Links
 
 Deployed Webpage:
-[insert link here]
+[https://kiira2125.github.io/StarGazer]
 
 GitHub Repository:
 [https://github.com/kiira2125/StarGazer]
