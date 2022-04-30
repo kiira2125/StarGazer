@@ -1,5 +1,7 @@
 # StarGazer: NASA's view of the galaxy.
-![alt text]('https://github.com/kiira2125/StarGazer/blob/main/assets/landing%20page%20screenshot.PNG?raw=true')
+![Landing Page]('https://github.com/kiira2125/StarGazer/blob/main/assets/landing%20page%20screenshot.PNG?raw=true')
+
+![Main Webpage]('https://github.com/kiira2125/StarGazer/blob/main/assets/stargazer.PNG?raw=true')
 
 # Project Description
 
