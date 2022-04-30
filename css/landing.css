@@ -35,10 +35,6 @@ header a {
     margin-top: 10px;
 }
 
-span {
-    color: rgb(201, 60, 60)
-}
-
 #landing {
     display: flex;
     flex-direction: column;
@@ -76,7 +72,6 @@ span {
 
 #landing a {
     font-family: 'helvetica', sans-serif;
-    display: block;
     margin: auto;
     width: 200px;
     height: 50px;
