@@ -3,6 +3,7 @@ const api_key = "5bUvkb0JwlsXJrZnZ10jfhZ6o5GGNLb43RTWTE9w";
 let userDate = moment().format("YYYY-MM-DD");
 console.log(userDate);
 
+const pastDates = JSON.parse (localStorage.getItem("pastDates")) || []
 const dateInputEl = document.querySelector("duet-date-picker");
 console.log(dateInputEl);
 
@@ -57,5 +58,9 @@ fetchNASAData();
 dateInputEl.addEventListener("duetChange", function () {
   console.log("CHANGING DATE!")
   userDate = getDate();
+  pastDates.push(userDate);
+  localStorage.setItem("pastDates", JSON.stringify(pastDates));
   fetchNASAData();
+
 });
+
