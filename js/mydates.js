@@ -12,6 +12,12 @@ var listDates = document.getElementById("list-dates");
 
 //Create var to store localstorage 'dates'
 var storeDates = JSON.parse(localStorage.getItem("pastDates"))
+//log storeDates,, how to get the latest
+//localStorage.setItem(key, pastDate);
+//find the date picker element on page, set its date
+// $( function() {
+//  $( "#datepicker" ).datepicker();
+// } )
 
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
@@ -35,3 +41,4 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+

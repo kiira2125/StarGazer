@@ -9,6 +9,8 @@
       initial-scale="1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- for the next and pervious button-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--remixicon cdn-->
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
@@ -43,7 +45,7 @@
     <main class="row container">
       <h1>NASA's Astronomy Picture of the Day</h1>
       <h2 id="title"></h2>
-        <!-- <label for="start">Enter a date:</label> -->
+      <!-- <label for="start">Enter a date:</label> -->
       <label
         for="date"
         id="date"
@@ -61,7 +63,7 @@
       <!-- <input type="date" id="date" name="date picker"
       min="1995-06-16" max=""> -->
       <!-- Trigger/Open The Modal -->
-    <button id="myBtn">My past view dates</button>
+      <button id="myBtn">My past view dates</button>
       <section class="picture-explanation-container">
         <img
           style="margin: auto"
@@ -72,7 +74,7 @@
         <p style="text-align: center" id="explanation"></p>
       </section>
     </main>
- 
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
       <!-- Modal content -->
@@ -81,6 +83,7 @@
         <ul id="list-dates"></ul>
       </div>
     </div>
+   
     <!--GSAP CDN-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <!--script.js-->
