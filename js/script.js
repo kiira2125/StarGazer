@@ -1,10 +1,10 @@
 const url = "https://api.nasa.gov/planetary/apod?api_key=";
 const api_key = "5bUvkb0JwlsXJrZnZ10jfhZ6o5GGNLb43RTWTE9w";
 let userDate = moment().format("YYYY-MM-DD")
-var currentDate = 0;
+var currentDate = moment().format("YYYY-MM-DD");
 
-const favorites = JSON.parse(localStorage.getItem("favorites")) || []
-console.log(favorites);
+// const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+// console.log(favorites);
 const dateInputEl = document.querySelector("duet-date-picker");
 
 //set the maximum date to today
@@ -49,10 +49,17 @@ const displayData = (data) => {
 
 //earliest picture from NASA APOD is june 16, 1995
 const setDate = () => {
-  var storedDate = localStorage.getItem("currentDate");
+  var storedDate = sessionStorage.getItem("currentDate");
   userDate = getDate();
-  currentDate = userDate || storedDate;
-  localStorage.setItem("currentDate", currentDate);
+  if (userDate) {
+    currentDate = userDate
+    console.log("userDate was chosen");
+  } else if (typeof storedDate != 'object') {
+    currentDate = storedDate
+  } else {
+    currentDate = moment().format("YYYY-MM-DD")
+  }
+  sessionStorage.setItem("currentDate", currentDate);
   dateInputEl.value = currentDate;
 }
 setDate();
