@@ -25,6 +25,7 @@
   font-family: "helvetica",sans-serif;
   color: black;
 }
+
 body {
   background-image: url("../assets/earth_sunrise_from_space-wallpaper-2560x1440.jpg");
   background-repeat: no-repeat;
@@ -55,7 +56,7 @@ h2 {
 }
 
 .container {
-  width: 70%;
+  width: 50%;
   height: auto;
   margin: 0 auto;
   text-align: center;
@@ -69,7 +70,6 @@ h2 {
   text-align: center;
   margin-top: 5%;
 }
-
 
 input {
   font-size: 17px;
@@ -85,7 +85,6 @@ section img {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  /* min-width: 60vh; */
   height: auto;
   background-size: cover;
   background-position: center center;
@@ -104,8 +103,6 @@ label {
 #picture {
   width: 80%;
   margin-right: 1rem;
-  /*border: 5px solid white;
-  border-radius: 5px;*/
   border: 3px solid;
   border-image-slice: 1;
   border-width: 3px;
@@ -119,8 +116,6 @@ label {
   letter-spacing: 0px;
   line-height: 20px;
   margin: 5% auto;
-  /* background-color: gray; */
-  /* opacity: .75; */
 }
 
 #date { 
@@ -137,42 +132,4 @@ footer {
   text-align: right;
   padding-right: 15px;
   opacity: 0.5;
-}
-
-/* The Modal CSS part */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
