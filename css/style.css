@@ -44,13 +44,19 @@ h1 {
   padding-top: 6%;
   margin: 0;
   box-sizing: border-box;
+  font-weight: 400;
+  padding-bottom: 5%;
 }
 
 h2 {
   color: white;
+  font-size: 30px;
+  padding-top: 2%;
 }
+
 .container {
   width: 70%;
+  height: auto;
   margin: 0 auto;
   text-align: center;
   margin-bottom: 2rem;
@@ -63,6 +69,7 @@ h2 {
   text-align: center;
   margin-top: 5%;
 }
+
 
 input {
   font-size: 17px;
@@ -78,7 +85,7 @@ section img {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  min-width: 60vh;
+  /* min-width: 60vh; */
   height: auto;
   background-size: cover;
   background-position: center center;
@@ -95,7 +102,7 @@ label {
 }
 
 #picture {
-  width: 50%;
+  width: 80%;
   margin-right: 1rem;
   /*border: 5px solid white;
   border-radius: 5px;*/

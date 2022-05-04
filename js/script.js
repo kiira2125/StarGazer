@@ -1,11 +1,11 @@
 const url = "https://api.nasa.gov/planetary/apod?api_key=";
 const api_key = "5bUvkb0JwlsXJrZnZ10jfhZ6o5GGNLb43RTWTE9w";
-let userDate = moment().format("YYYY-MM-DD");
-console.log(userDate);
+let userDate = moment().format("YYYY-MM-DD")
+var currentDate = 0;
 
-const pastDates = JSON.parse (localStorage.getItem("pastDates")) || []
+const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+console.log(favorites);
 const dateInputEl = document.querySelector("duet-date-picker");
-console.log(dateInputEl);
 
 //set the maximum date to today
 var today = new Date();
@@ -19,24 +19,21 @@ if (mm < 10) {
   mm = "0" + mm;
 }
 today = `${yyyy}-${mm}-${dd}`;
-document.getElementById("date").setAttribute("max", today);
+document.querySelector("duet-date-picker").setAttribute("max", today);
+
 
 // receive the date that was input from user on the html
 const getDate = () => {
   const date =
-    document.querySelector(".duet-date input")?.value || dateInputEl.value;
-
-    console.log("DATE FROM GET DATE")
+  document.querySelector(".duet-date input")?.value || dateInputEl.value;
   return date;
 };
-console.log(getDate());
 
 // Fetching data from the API
 const fetchNASAData = async () => {
   try {
-    const response = await fetch(`${url}${api_key}&date=${userDate}`);
+    const response = await fetch(`${url}${api_key}&date=${currentDate}`);
     const data = await response.json();
-    console.log("NASA APOD data", data);
     displayData(data);
   } catch (error) {
     console.log(error);
@@ -46,21 +43,24 @@ const fetchNASAData = async () => {
 // Displaying data on the page
 const displayData = (data) => {
   document.getElementById("title").textContent = data.title;
-  //for the date use the date received from user
-  // document.getElementById("date").textContent = getDate();
-  // document.getElementById('date').textContent = data.getDate
   document.getElementById("picture").src = data.hdurl || 'https://i.kym-cdn.com/entries/icons/original/000/038/456/christmas_who_wide.png';
-  document.getElementById("explanation").textContent = data.explanation || "NASA didn't take a picture that day and it makes Spongebob sad.";
+  document.getElementById("explanation").textContent = data.explanation || "NASA doesn't have any information for that day and it makes us sad.";
 };
 
 //earliest picture from NASA APOD is june 16, 1995
-fetchNASAData();
-dateInputEl.addEventListener("duetChange", function () {
-  console.log("CHANGING DATE!")
+const setDate = () => {
+  var storedDate = localStorage.getItem("currentDate");
   userDate = getDate();
-  pastDates.push(userDate);
-  localStorage.setItem("pastDates", JSON.stringify(pastDates));
-  fetchNASAData();
+  currentDate = userDate || storedDate;
+  localStorage.setItem("currentDate", currentDate);
+  dateInputEl.value = currentDate;
+}
+setDate();
+fetchNASAData();
 
+//check for when the user changes the date
+dateInputEl.addEventListener("duetChange", function () {
+  setDate();
+  fetchNASAData();
 });
 
