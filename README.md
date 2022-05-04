@@ -1,5 +1,9 @@
 # StarGazer: NASA's view of the galaxy.
 
+![Landing Page](/assets/landing%20page%20screenshot.PNG)
+
+![Main Webpage](/assets/stargazer.PNG)
+
 # Project Description
 
 This purpose of this project was to collaborate with a group of developers to create an application with the following criterias:
@@ -32,7 +36,4 @@ Deployed Webpage:
 GitHub Repository:
 [https://github.com/kiira2125/StarGazer]
 
-![Landing Page](/assets/landing%20page%20screenshot.PNG)
-
-![Main Webpage](/assets/stargazer.PNG)
 
